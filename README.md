@@ -7,4 +7,4 @@ This repo contains a custom Heap class that allows for "heapify" functionalityâ€
 1. In your terminal, run:
 
 ### `ruby main.rb`
-
+2. Answer the prompts.
