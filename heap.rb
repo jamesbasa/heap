@@ -6,27 +6,30 @@ class Heap
         @heap_size = arr.length
     end
 
-    def create_max_heap
+    def create_heap(is_max = false)
         # iterate over non-leaves descending
         for i in (@heap_size/2 - 1).downto(0)
-            max_heapify(i)
+            heapify(i, is_max)
         end
+        
+        return @array
     end
 
-    def max_heapify(index)
+    def heapify(index, is_max = false)
         # 1. return if index is a leaf or heap is satisfied
-        # 2. swap with the largest child
-        # 3. call heapify on the largest child's index
-        return if is_leaf?(index) || is_max_heap_satisfied?(index)
+        # 2. swap with the largest child if max heap, or smallest child if min heap
+        # 3. call heapify on that child's index
+        return if is_leaf?(index) || is_heap_satisfied?(index, is_max)
 
-        largest_child_index = if left_child_value(index) > right_child_value(index)
-                                  left_child_index(index)
-                              else
-                                  right_child_index(index)
-                              end
-        @array[index], @array[largest_child_index] = @array[largest_child_index], @array[index]
+        child_index_to_swap =
+            if is_max
+                left_child_value(index) > right_child_value(index) ? left_child_index(index) : right_child_index(index)
+            else
+                left_child_value(index) < right_child_value(index) ? left_child_index(index) : right_child_index(index)
+            end
+        @array[index], @array[child_index_to_swap] = @array[child_index_to_swap], @array[index]
 
-        max_heapify(largest_child_index)
+        heapify(child_index_to_swap, is_max)
     end
 
     def left_child_index(index)
@@ -49,7 +52,11 @@ class Heap
         index >= (@heap_size / 2)
     end
 
-    def is_max_heap_satisfied?(index)
-        @array[index] > left_child_value(index) && @array[index] > right_child_value(index)
+    def is_heap_satisfied?(index, is_max = false)
+        if is_max
+            @array[index] > left_child_value(index) && @array[index] > right_child_value(index)
+        else
+            @array[index] < left_child_value(index) && @array[index] < right_child_value(index)
+        end
     end
 end
