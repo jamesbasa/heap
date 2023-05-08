@@ -1,8 +1,5 @@
+require './constants.rb'
 require './heap.rb'
-
-MAX = "max"
-MIN = "min"
-HEAP_TYPES = [MAX, MIN]
 
 # Binary Tree Representation of input array
 #                  5
@@ -22,9 +19,9 @@ while true
     puts "Please input either '#{MIN}' or '#{MAX}'"
     puts
     next
-  end 
+  end
 
-  Heap.new(arr).create_heap(heap_type == MAX)
+  Heap.new(arr, heap_type == MAX).create_heap
   puts "The #{heap_type.downcase == MAX ? MAX : MIN} heap: #{arr.inspect}"
 
   puts "Would you like to try another input? y / n"

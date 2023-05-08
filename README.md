@@ -4,7 +4,9 @@ This repo contains a custom Heap class that allows for "heapify" functionalityâ€
 
 ## How To Run
 
-1. In your terminal, run:
+To run the heapify file, run:
 
-### `ruby main.rb`
-2. Answer the prompts.
+### `ruby heapify.rb`
+To run the heap insert file, run:
+
+### `ruby heap_insert.rb`
