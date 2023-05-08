@@ -14,7 +14,7 @@ while true
   puts "Here is the original array: #{arr.inspect}"
   puts "Do you want to create a min or max heap?"
 
-  heap_type = gets.chomp
+  heap_type = gets.chomp.downcase
   unless HEAP_TYPES.include? heap_type
     puts "Please input either '#{MIN}' or '#{MAX}'"
     puts
@@ -22,7 +22,7 @@ while true
   end
 
   Heap.new(arr, heap_type == MAX).create_heap
-  puts "The #{heap_type.downcase == MAX ? MAX : MIN} heap: #{arr.inspect}"
+  puts "The #{heap_type} heap: #{arr.inspect}"
 
   puts "Would you like to try another input? y / n"
   try_again = gets.chomp.downcase
