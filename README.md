@@ -10,3 +10,6 @@ To run the heapify file, run:
 To run the heap insert file, run:
 
 ### `ruby heap_insert.rb`
+To run the heap rspec file, run:
+
+### `rspec spec/heap_spec.rb`
