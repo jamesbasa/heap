@@ -1,6 +1,6 @@
 # Heap
 
-This repo contains a custom Heap class that allows for "heapify" functionality——creating a heap out of a given array of elements.
+This repo contains a custom Heap class that allows for "heapify" functionality——creating a heap out of a given array of elements——and heap insert.
 
 ## How To Run
 
