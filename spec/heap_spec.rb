@@ -1,4 +1,4 @@
-require '../heap.rb'
+require '../lib/heap.rb'
 
 RSpec.describe Heap do
   describe "#initialize" do
